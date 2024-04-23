@@ -43,3 +43,11 @@ history = model.fit(partial_x_train, partial_y_train, epochs=20, batch_size=512,
 
 results = model.evaluate(x_test, y_test)
 print(results)
+
+# Predict sentiment for test data
+predictions = model.predict(x_test)
+
+# Interpret predictions
+for i, prediction in enumerate(predictions):
+    sentiment = "positive" if prediction >= 0.5 else "negative"
+    print(f"Review {i + 1}: Predicted sentiment: {sentiment} (Probability: {prediction[0]:.4f})")
