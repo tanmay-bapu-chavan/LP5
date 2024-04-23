@@ -31,3 +31,11 @@ history = model.fit(X_train, Y_train, epochs=100, batch_size=1, verbose=1, valid
 
 results = model.evaluate(X_test, Y_test)
 print(results)
+
+# Make predictions on the test data
+predictions = model.predict(X_test)
+
+# Print the first few predicted house prices
+print("Predicted house prices:")
+for i in range(5):
+    print("Predicted:", predictions[i], "Actual:", Y_test[i])
